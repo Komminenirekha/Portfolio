@@ -5,126 +5,534 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kommineni Rekha Chowdary - Portfolio</title>
+  
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      color: #222;
-      background-color: #fff;
-      line-height: 1.6;
+    :root {
+      --primary-color: #1e40af;
+      --primary-hover: #2563eb;
+      --secondary-color: #f8f9fa;
+      --text-color: #222;
+      --text-light: #666;
+      --border-color: #e5e7eb;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-color);
+      background-color: #ffffff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header Styles */
     header {
-      background: #1e3a8a;
-      color: #fff;
-      padding: 20px 40px;
+      background: rgba(248, 249, 250, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
     }
 
     header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary-color);
       margin: 0;
-      font-size: 1.6rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
     }
 
     nav a {
-      margin-left: 20px;
-      color: #fff;
-      font-weight: bold;
+      font-weight: 500;
+      color: var(--text-color);
       text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
+    nav a:hover {
+      color: var(--primary-color);
+      background-color: rgba(30, 64, 175, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Section Styles */
     section {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { 
+      font-size: 2.2rem; 
+      margin-bottom: 15px;
       text-align: center;
     }
-
-    h2 {
-      color: #1e40af;
-      font-size: 2rem;
+    h3 { 
+      font-size: 1.4rem; 
+      margin-bottom: 10px;
     }
 
-    h3 {
-      color: #333;
-      margin-top: 15px;
-    }
-
-    .section-divider {
-      height: 2px;
-      width: 80px;
-      background: #1e40af;
-      margin: 10px auto 20px auto;
+    /* Home Section */
+    #home {
+      text-align: center;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 80px 20px;
+      margin-top: 0;
     }
 
     .profile-img {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      border: 3px solid #1e40af;
       object-fit: cover;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 8px 32px rgba(30, 64, 175, 0.2);
+      transition: transform 0.3s ease;
     }
 
-    .cards {
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    #home h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      height: 3px;
+      width: 60px;
+      background: var(--gradient);
+      margin: 15px auto 40px auto;
+      border-radius: 2px;
+    }
+
+    /* Card Styles */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 15px 0;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .skill-category {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .skill-category h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-tags {
       display: flex;
       flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: rgba(30, 64, 175, 0.1);
+      color: var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Button Styles */
+    button, .btn {
+      background: var(--gradient);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      margin: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+    }
+
+    button:hover, .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+    }
+
+    /* Contact Icons */
+    .contact-icons {
+      display: flex;
       justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
     }
 
-    .card {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      flex: 1 1 280px;
-      text-align: left;
+    .contact-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
     }
 
-    ul {
-      text-align: left;
+    .contact-icons a:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .contact-info {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .contact-info strong {
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--gradient);
+      color: white;
+      margin-top: 60px;
+    }
+
+    footer p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* About Section Enhancement */
+    .about-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .about-highlights {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .about-highlights h3 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    .about-highlights ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .about-highlights li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
       padding-left: 20px;
     }
 
-    button {
-      background: #1e40af;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      margin: 10px 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #2563eb;
+    .about-highlights li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1e3a8a;
-      color: #fff;
-      margin-top: 40px;
+    .about-highlights li:last-child {
+      border-bottom: none;
     }
 
-    @media(max-width:768px) {
+    /* Experience Timeline */
+    .experience-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gradient);
+    }
+
+    .experience-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px var(--primary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
       header {
         flex-direction: column;
-        text-align: center;
+        padding: 15px 20px;
+        gap: 15px;
       }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
       nav {
-        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
       }
+
+      nav a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 40px 15px;
+      }
+
+      #home {
+        padding: 60px 15px;
+      }
+
+      #home h2 {
+        font-size: 2rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-timeline {
+        padding-left: 0;
+      }
+
+      .experience-timeline::before {
+        display: none;
+      }
+
+      .experience-item::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+
+      #home h2 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .contact-icons {
+        gap: 15px;
+      }
+
+      .contact-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Animation for scroll reveal */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease-out;
     }
   </style>
 </head>
@@ -134,225 +542,354 @@
   <header>
     <h1>Kommineni Rekha Chowdary</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
+      <a href="#home"><i class="fas fa-home"></i> Home</a>
+      <a href="#about"><i class="fas fa-user"></i> About</a>
+      <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+      <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+      <a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a>
+      <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+      <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="#resume"><i class="fas fa-file-alt"></i> Resume</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
     </nav>
   </header>
 
-  <!-- Home -->
+  <!-- Home/Profile Section -->
   <section id="home">
-    <img src="https://i.ibb.co/Q7T3dndL/IMG-20250514-103030.jpg" alt="Rekha" class="profile-img">
+    <img src="https://i.ibb.co/Q7T3dndL/IMG-20250514-103030.jpg" alt="Kommineni Rekha Chowdary" class="profile-img">
     <h2>Hello, I'm Rekha</h2>
     <p>Salesforce Developer & Administrator | Java, Python, SQL | CRM & Business Process Improvement</p>
-    <a href="#contact"><button>Get In Touch</button></a>
-    <a href="https://drive.google.com/file/d/1RXs2nhh9wJCX_vbnm56g5hHIKDuL-m6F/view?usp=drive_link" target="_blank">
-      <button>Download Resume</button>
+    <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+    <a href="https://drive.google.com/file/d/1RXs2nhh9wJCX_vbnm56g5hHIKDuL-m6F/view?usp=drive_link" target="_blank" class="btn">
+      <i class="fas fa-download"></i> Download Resume
     </a>
   </section>
 
-  <!-- About -->
+  <!-- About Me -->
   <section id="about">
-    <h2>About Me</h2>
+    <h2><i class="fas fa-user-circle"></i> About Me</h2>
     <div class="section-divider"></div>
-    <p>I am a Salesforce Developer and Administrator with expertise in Java, Python, and SQL, specializing in CRM solutions, data analysis, and business process improvement. Passionate about continuous learning and innovation, I aim to solve complex problems and drive efficiency.</p>
-    <div class="cards">
-      <div class="card">Problem Solver</div>
-      <div class="card">Innovation Focused</div>
-      <div class="card">Continuous Learner</div>
-      <div class="card">Development Expertise: Salesforce, Java, Python, SQL</div>
-      <div class="card">CRM Solutions: Data Analysis & Management</div>
-      <div class="card">Process Improvement & Optimization</div>
-      <div class="card">Collaboration: Team Leadership & Communication</div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>I am a Salesforce Developer and Administrator with expertise in Java, Python, and SQL, specializing in CRM solutions, data analysis, and business process improvement. Passionate about continuous learning and innovation, I aim to solve complex problems and drive efficiency.</p>
+        <p>With hands-on experience across finance, technology, and cybersecurity domains, I bring a unique perspective to every project. My goal is to leverage technology to create meaningful solutions that drive business growth and operational excellence.</p>
+      </div>
+      <div class="about-highlights">
+        <h3><i class="fas fa-star"></i> Key Strengths</h3>
+        <ul>
+          <li>Problem Solver</li>
+          <li>Innovation Focused</li>
+          <li>Continuous Learner</li>
+          <li>Development Expertise: Salesforce, Java, Python, SQL</li>
+          <li>CRM Solutions: Data Analysis & Management</li>
+          <li>Process Improvement & Optimization</li>
+          <li>Collaboration: Team Leadership & Communication</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- Education -->
+  <!-- Education Section -->
   <section id="education">
-    <h2>Education</h2>
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
     <div class="section-divider"></div>
-    <div class="cards">
-      <div class="card"><h3>MBA – HR & IT</h3><p>Dr. AER MBA College, SVU (2023–2025)<br>CGPA: 7.18</p></div>
-      <div class="card"><h3>B.Com – Computer Applications</h3><p>Dr. AER Degree/PG College, SVU (2020–2023)<br>CGPA: 8.6</p></div>
-      <div class="card"><h3>Intermediate (Class 12)</h3><p>Sri Chaitanya Junior College (2018–2020)<br>CGPA: 8.25</p></div>
-      <div class="card"><h3>10th Standard (SSC)</h3><p>Sri Chaitanya School (2017–2018)<br>CGPA: 9.8</p></div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fas fa-university"></i> MBA – HR & IT</h3>
+        <p><strong>Dr. AER MBA College, Sri Venkateswara University</strong></p>
+        <p>2023–2025 | <span style="color: var(--primary-color); font-weight: 600;">CGPA: 7.18</span></p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-laptop-code"></i> B.Com – Computer Applications</h3>
+        <p><strong>Dr. AER Degree/PG College, Sri Venkateswara University</strong></p>
+        <p>2020–2023 | <span style="color: var(--primary-color); font-weight: 600;">CGPA: 8.6</span></p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-school"></i> Intermediate (Class 12)</h3>
+        <p><strong>Sri Chaitanya Junior College</strong></p>
+        <p>2018–2020 | <span style="color: var(--primary-color); font-weight: 600;">CGPA: 8.25</span></p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-medal"></i> 10th Standard (SSC)</h3>
+        <p><strong>Sri Chaitanya School</strong></p>
+        <p>2017–2018 | <span style="color: var(--primary-color); font-weight: 600;">CGPA: 9.8</span></p>
+      </div>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Skills Section -->
   <section id="skills">
-    <h2>Skills</h2>
+    <h2><i class="fas fa-code"></i> Skills</h2>
     <div class="section-divider"></div>
-    <h3>Technical Skills</h3>
-    <div class="cards">
-      <div class="card">Salesforce (Developer & Administrator)</div>
-      <div class="card">Java</div>
-      <div class="card">Python</div>
-      <div class="card">SQL</div>
-      <div class="card">Cybersecurity Fundamentals</div>
-      <div class="card">MS Excel & PowerPoint</div>
-      <div class="card">Accounting Software</div>
-    </div>
-    <h3>Professional Skills</h3>
-    <div class="cards">
-      <div class="card">Data Analysis</div>
-      <div class="card">Business Process Improvement</div>
-      <div class="card">CRM Management</div>
-      <div class="card">Financial Reporting</div>
-      <div class="card">Communication</div>
-      <div class="card">Team Collaboration</div>
-      <div class="card">Research & Documentation</div>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Salesforce</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Cybersecurity</span>
+          <span class="skill-tag">MS Excel</span>
+          <span class="skill-tag">PowerPoint</span>
+          <span class="skill-tag">Accounting Software</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-users"></i> Professional Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Analysis</span>
+          <span class="skill-tag">Process Improvement</span>
+          <span class="skill-tag">CRM Management</span>
+          <span class="skill-tag">Financial Reporting</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Team Collaboration</span>
+          <span class="skill-tag">Research</span>
+          <span class="skill-tag">Documentation</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Experience -->
+  <!-- Experience Section -->
   <section id="experience">
-    <h2>Experience</h2>
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
     <div class="section-divider"></div>
-    <div class="cards">
-      <div class="card">
-        <h3>Finance & Accounts Intern – Amara Raja Energy & Mobility Ltd</h3>
-        <p>Aug 2024 – Apr 2025 | India</p>
-        <ul>
-          <li>Assisted in financial reporting, budgeting, and account reconciliations.</li>
-          <li>Gained hands-on experience in accounting software and financial analysis.</li>
-          <li>Supported the finance team in optimizing accounting processes.</li>
-        </ul>
+    <div class="experience-timeline">
+      <div class="experience-item">
+        <div class="card">
+          <h3><i class="fas fa-chart-line"></i> Finance & Accounts Intern – Amara Raja Energy & Mobility Ltd</h3>
+          <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+            <i class="fas fa-calendar-alt"></i> Aug 2024 – Apr 2025 | India
+          </p>
+          <ul>
+            <li>Assisted in financial reporting, budgeting, and account reconciliations.</li>
+            <li>Gained hands-on experience in accounting software and financial analysis.</li>
+            <li>Supported the finance team in optimizing accounting processes.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>Sales & Accounts Intern – Aqua Group: Texmo</h3>
-        <p>Dec 2022 – May 2023 | India</p>
-        <ul>
-          <li>Managed physical sales operations, billing, invoicing, and payment tracking.</li>
-          <li>Handled accounts and prepared sales reports.</li>
-          <li>Streamlined sales and accounting processes.</li>
-        </ul>
+      <div class="experience-item">
+        <div class="card">
+          <h3><i class="fas fa-shopping-cart"></i> Sales & Accounts Intern – Aqua Group: Texmo</h3>
+          <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+            <i class="fas fa-calendar-alt"></i> Dec 2022 – May 2023 | India
+          </p>
+          <ul>
+            <li>Managed physical sales operations, billing, invoicing, and payment tracking.</li>
+            <li>Maintained financial records and prepared comprehensive sales reports.</li>
+            <li>Streamlined sales and accounting processes for improved efficiency.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>Salesforce Developer Intern – Salesforce, SmartInternz</h3>
-        <p>Aug 2022 – Oct 2022 | Remote</p>
-        <ul>
-          <li>Salesforce development and customization.</li>
-          <li>Created workflows, reports, and dashboards.</li>
-          <li>Enhanced CRM processes and automation.</li>
-        </ul>
+      <div class="experience-item">
+        <div class="card">
+          <h3><i class="fab fa-salesforce"></i> Salesforce Developer Intern – Salesforce, SmartInternz</h3>
+          <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+            <i class="fas fa-calendar-alt"></i> Aug 2022 – Oct 2022 | Remote
+          </p>
+          <ul>
+            <li>Gained hands-on experience in Salesforce development and customization.</li>
+            <li>Created workflows, reports, and dashboards for business automation.</li>
+            <li>Enhanced knowledge of CRM processes and business automation.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>Cybersecurity Virtual Intern – Palo Alto Networks</h3>
-        <p>Sep 2022 – Nov 2022 | Remote</p>
-        <ul>
-          <li>Learned cybersecurity fundamentals and protocols.</li>
-          <li>Assisted in vulnerability assessment and threat analysis.</li>
-          <li>Gained exposure to real-world cybersecurity tools.</li>
-        </ul>
+      <div class="experience-item">
+        <div class="card">
+          <h3><i class="fas fa-shield-alt"></i> Cybersecurity Virtual Intern – Palo Alto Networks</h3>
+          <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+            <i class="fas fa-calendar-alt"></i> Sep 2022 – Nov 2022 | Remote
+          </p>
+          <ul>
+            <li>Learned cybersecurity fundamentals and network security protocols.</li>
+            <li>Assisted in vulnerability assessment and threat analysis exercises.</li>
+            <li>Gained exposure to real-world cybersecurity tools and practices.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>Salesforce Administrator Intern – Salesforce, SmartInternz</h3>
-        <p>Apr 2023 – May 2023 | Remote</p>
-        <ul>
-          <li>Salesforce administration tasks including user management.</li>
-          <li>Configured objects, fields, and reports.</li>
-          <li>Optimized CRM workflows.</li>
-        </ul>
+      <div class="experience-item">
+        <div class="card">
+          <h3><i class="fas fa-user-cog"></i> Salesforce Administrator Intern – Salesforce, SmartInternz</h3>
+          <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+            <i class="fas fa-calendar-alt"></i> Apr 2023 – May 2023 | Remote
+          </p>
+          <ul>
+            <li>Learned Salesforce administration including user management and data maintenance.</li>
+            <li>Configured Salesforce objects, fields, and comprehensive reports.</li>
+            <li>Optimized CRM workflows and business processes for enhanced efficiency.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Certifications -->
+  <!-- Certifications Section -->
   <section id="certifications">
-    <h2>Certifications</h2>
+    <h2><i class="fas fa-certificate"></i> Certifications</h2>
     <div class="section-divider"></div>
-    <div class="cards">
-      <div class="card">Cybersecurity Essentials – Cisco</div>
-      <div class="card">Master Class on Java Programming – Pantech E-Learning</div>
-      <div class="card">Master Class on Python Programming – Skill AP</div>
-      <div class="card">Essential Program in Python – LetsUpgrade</div>
-      <div class="card">AWS Security Fundamentals – AWS</div>
+    <div class="grid-3">
+      <div class="card">
+        <h3><i class="fas fa-shield-alt"></i> Cybersecurity Essentials</h3>
+        <p><strong>Cisco</strong></p>
+      </div>
+      <div class="card">
+        <h3><i class="fab fa-java"></i> Java Programming Master Class</h3>
+        <p><strong>Pantech E-Learning</strong></p>
+      </div>
+      <div class="card">
+        <h3><i class="fab fa-python"></i> Python Programming Master Class</h3>
+        <p><strong>Skill AP (APSSDC)</strong></p>
+      </div>
+      <div class="card">
+        <h3><i class="fab fa-python"></i> Essential Program in Python</h3>
+        <p><strong>LetsUpgrade</strong></p>
+      </div>
+      <div class="card">
+        <h3><i class="fab fa-aws"></i> AWS Security Fundamentals</h3>
+        <p><strong>Amazon Web Services</strong></p>
+      </div>
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services Section -->
   <section id="services">
-    <h2>Services</h2>
+    <h2><i class="fas fa-cogs"></i> Services</h2>
     <div class="section-divider"></div>
-    <div class="cards">
-      <div class="card"><h3>Salesforce Solutions</h3><p>Customization, administration, and development of Salesforce solutions.</p></div>
-      <div class="card"><h3>Software Development</h3><p>Building applications using Java, Python, or SQL.</p></div>
-      <div class="card"><h3>Finance & Accounts Support</h3><p>Data management, process improvement, and reporting support.</p></div>
-      <div class="card"><h3>Business Process Improvement</h3><p>Analyzing workflows and suggesting better solutions.</p></div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i class="fab fa-salesforce"></i> Salesforce Solutions</h3>
+        <p>Comprehensive Salesforce customization, administration, and development services to optimize your CRM processes and drive business growth.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-code"></i> Software Development</h3>
+        <p>Building robust applications using Java, Python, and SQL with focus on scalability, performance, and user experience.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-chart-bar"></i> Finance & Accounts Support</h3>
+        <p>Expert data management, process improvement, and comprehensive reporting support for financial operations.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-tasks"></i> Business Process Improvement</h3>
+        <p>Analyzing existing workflows and implementing innovative solutions to enhance efficiency and productivity.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Projects Section -->
   <section id="projects">
-    <h2>Projects</h2>
+    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
     <div class="section-divider"></div>
-    <div class="cards">
+    <div class="grid-2">
       <div class="card">
-        <h3>Community Service Project – Dairy Awareness</h3>
-        <p>Dec 2022 – Jan 2023</p>
+        <h3><i class="fas fa-hands-helping"></i> Community Service Project – Dairy Awareness</h3>
+        <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 15px;">
+          <i class="fas fa-calendar-alt"></i> Dec 2022 – Jan 2023
+        </p>
         <ul>
-          <li>Educating local communities about dairy business practices.</li>
-          <li>Conducted awareness campaigns and created materials.</li>
-          <li>Engaged in research and communication skills.</li>
+          <li>Conducted comprehensive awareness campaigns to educate local communities about dairy business practices.</li>
+          <li>Created informational materials and engaging presentations for community outreach.</li>
+          <li>Developed strong community engagement, research, and communication skills.</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Research Project – Job Enrichment in APSPDCL</h3>
-        <p>Sep 2024 – Nov 2024</p>
+        <h3><i class="fas fa-search"></i> Research Project – Job Enrichment in APSPDCL</h3>
+        <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 15px;">
+          <i class="fas fa-calendar-alt"></i> Sep 2024 – Nov 2024
+        </p>
         <ul>
-          <li>Analyzed employee motivation and efficiency.</li>
-          <li>Collected and interpreted survey data.</li>
-          <li>Developed insights to improve satisfaction.</li>
+          <li>Analyzed job enrichment practices and their impact on employee motivation and satisfaction.</li>
+          <li>Collected and interpreted comprehensive data through surveys and structured interviews.</li>
+          <li>Developed actionable insights to improve organizational efficiency and employee engagement.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Resume -->
+  <!-- Resume Section -->
   <section id="resume">
-    <h2>Resume</h2>
+    <h2><i class="fas fa-file-alt"></i> Resume</h2>
     <div class="section-divider"></div>
-    <p style="max-width:700px;margin:auto;">
-      I am a dedicated Salesforce Developer & Administrator with expertise in Java, Python, and SQL. With hands-on experience in CRM solutions, finance, and cybersecurity, I bring both technical and analytical skills to deliver efficient business process improvements. Passionate about learning and innovation, I aim to create impactful solutions that drive growth and efficiency.
-    </p>
-    <a href="https://drive.google.com/file/d/1RXs2nhh9wJCX_vbnm56g5hHIKDuL-m6F/view?usp=drive_link" target="_blank">
-      <button>Download Resume</button>
-    </a>
+    <div class="card" style="text-align: center;">
+      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+        I am a dedicated Salesforce Developer & Administrator with expertise in Java, Python, and SQL. 
+        With hands-on experience in CRM solutions, finance, and cybersecurity, I deliver efficient 
+        business process improvements that drive growth and innovation.
+      </p>
+      <a href="https://drive.google.com/file/d/1RXs2nhh9wJCX_vbnm56g5hHIKDuL-m6F/view?usp=drive_link" target="_blank" class="btn">
+        <i class="fas fa-download"></i> Download Resume
+      </a>
+    </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
+    <h2><i class="fas fa-envelope"></i> Contact</h2>
     <div class="section-divider"></div>
-    <p>📞 +91 79012 66761</p>
-    <p>✉️ <a href="mailto:rekhachowdarykommineni@gmail.com">rekhachowdarykommineni@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/kommineni-rekha-chowdary" target="_blank">LinkedIn</a></p>
-    <p>💻 <a href="https://github.com/Komminenirekha" target="_blank">GitHub</a></p>
-    <a href="mailto:rekhachowdarykommineni@gmail.com"><button>Send Email</button></a>
-    <a href="https://www.linkedin.com/in/kommineni-rekha-chowdary" target="_blank"><button>Connect on LinkedIn</button></a>
+    <div class="contact-info">
+      <p><strong><i class="fas fa-phone"></i> Phone:</strong> +91 79012 66761</p>
+      <p><strong><i class="fas fa-envelope"></i> Email:</strong> rekhachowdarykommineni@gmail.com</p>
+      <p><strong><i class="fab fa-linkedin"></i> LinkedIn:</strong> linkedin.com/in/kommineni-rekha-chowdary</p>
+      <p><strong><i class="fab fa-github"></i> GitHub:</strong> github.com/Komminenirekha</p>
+    </div>
+    <div class="contact-icons">
+      <a href="tel:+917901266761" title="Call Me"><i class="fas fa-phone"></i></a>
+      <a href="mailto:rekhachowdarykommineni@gmail.com" title="Email Me"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/kommineni-rekha-chowdary" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Komminenirekha" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
+    </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Kommineni Rekha Chowdary. Made with love and lots of coffee ☕ | Made in Bolt</p>
+    <p>© 2025 Kommineni Rekha Chowdary. Made with ❤️ and lots of coffee ☕</p>
   </footer>
 
-  <!-- Smooth Scroll -->
+  <!-- Smooth Scroll Script -->
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function(e) {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href'))
-          .scrollIntoView({behavior:'smooth'});
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
+    });
+
+    // Header background change on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(248, 249, 250, 0.98)';
+        header.style.backdropFilter = 'blur(15px)';
+      } else {
+        header.style.background = 'rgba(248, 249, 250, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+      }
+    });
+
+    // Add fade-in animation to cards when they come into view
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
     });
   </script>
 
